@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = PlayingCards::VERSION
   gem.authors       = ["hollanddd"]
   gem.email         = ["me@darrenholland.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Standard deck of 52. No Jokers}
+  gem.summary       = %q{Standard deck of 52. No Jokers}
+  gem.homepage      = "https://github.com/hollanddd/playing_cards"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
