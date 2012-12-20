@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-    deck_of_cards = Deck.new
+    deck_of_cards = Deck.standard
 
 ## Contributing
 
