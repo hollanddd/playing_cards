@@ -14,7 +14,7 @@ class Deck < Array
     deck = Deck.new
     %w{club diamond heart spade}.each do |suit|
       %w{2 3 4 5 6 7 8 9 10 jack queen king ace}.each do |rank|
-        deck << CardWeb.new(rank, suit)
+        deck << Card.new(rank, suit)
       end
     end
     deck
