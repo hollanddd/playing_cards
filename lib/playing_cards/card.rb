@@ -1,3 +1,8 @@
+=begin
+put comments on
+many lines
+=end
+
 class Card
   attr_accessor :rank, :suit
 
@@ -63,9 +68,7 @@ class Card
   def self.parse name
     name = name.to_s.sub(/^the()?/i, '').strip
 
-    if name =~ /^(\w+) of (\w+)$/i
-      Card.new $1, $2
-    elsif name =~ /^(\w+)of(\w+)$/i
+    if name =~ /^(\w+) of (\w+)$/i || name =~ /^(\w+)of(\w+)$/i
       Card.new $1, $2
     end
   end
