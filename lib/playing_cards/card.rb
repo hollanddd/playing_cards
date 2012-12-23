@@ -67,9 +67,19 @@ class Card
   
   def self.parse name
     name = name.to_s.sub(/^the()?/i, '').strip
+#    re = / 
+#      (
+#        [0-9]|[A-Za-z]
+#    )+( )?[Oo]f( )?(
+#    [Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade
+#    )s$/x
+
+
 
     if name =~ /^(\w+) of (\w+)$/i || name =~ /^(\w+)of(\w+)$/i
+      # I fix this shit later =)
       Card.new $1, $2
+    #return( Card.new $1, $2) if name =~ re
     end
   end
 

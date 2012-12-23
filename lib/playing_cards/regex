@@ -1,0 +1,10 @@
+^[^one][a-zA-Z2-9]+( )?of( )?(club|diamond|heart|spade)s$
+^[a-zA-Z2-9]+( )?of( )?(club|diamond|heart|spade)s?+$
+^[A-Za-z0-9]+ ?of ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s?+$
+
+
+^[A-Za-z0-9]+ ?of ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s?$
+
+^([Tt]he)? ?([0-9]|[A-Za-z]|[Ace])+ ?[Oo]f ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s$
+
+^([0-9]|[A-Za-z]|[Ace])+ ?[Oo]f ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s$
