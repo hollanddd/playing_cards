@@ -1,8 +1,3 @@
-=begin
-put comments on
-many lines
-=end
-
 class Card
   attr_accessor :rank, :suit
 
@@ -66,24 +61,27 @@ class Card
   alias to_s name
   
   def self.parse name
-    name = name.to_s.sub(/^the()?/i, '').strip
-#    re = / 
-#      (
-#        [0-9]|[A-Za-z]
-#    )+( )?[Oo]f( )?(
-#    [Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade
-#    )s$/x
-
-
-
-    if name =~ /^(\w+) of (\w+)$/i || name =~ /^(\w+)of(\w+)$/i
-      # I fix this shit later =)
-      Card.new $1, $2
-    #return( Card.new $1, $2) if name =~ re
-    end
+    r=/^([0-9]{1,2}|[A-Za-z]+) ?[Oo]f ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s?$/
+      r =~ name.to_s.sub(/^the()?/i, '').strip
+    Card.new $1, $2
   end
 
   class << self
     alias [] parse
   end
 end
+
+
+=begin
+    re=/ 
+      ^([Tt]he|) ?(      # semi-pathological optimal regular set of expressions
+         [0-9]{1,2}|     # Matches numeric limiting two place anchor OR
+           [A-Za-z]+     # Matches greedy alpha case 
+        ) ?[Oo]f ?(      # Filters optional spaced possesive preposition
+     [Cc]lub|            # Matches cased alpha class card type
+     [Dd]iamond|         # Optional plural or singular
+     [Hh]eart|           # Optimised Regular Expressoion
+     [Ss]pade*           # Classically composed by Stu and Darren
+     )s?$                # For the Lu1z!
+       /x
+=end
