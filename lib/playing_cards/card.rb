@@ -61,7 +61,17 @@ class Card
   alias to_s name
   
   def self.parse name
-    r=/^([0-9]{1,2}|[A-Za-z]+) ?[Oo]f ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s?$/
+    #r=/^([0-9]{1,2}|[A-Za-z]+) ?[Oo]f ?([Cc]lub|[Dd]iamond|[Hh]eart|[Ss]pade)s?$/
+    r=/^(           # semi-pathological optimal regular set of expressions
+      [0-9]{1,2}|   # Matches numeric limiting two place anchor OR
+         [A-Za-z]+  # Matches greedy alpha case
+    )[[:blank:]]?   # Optional single whitespace
+    [Oo]f\s?(       # Filters optional spaced possesive preposition
+      [Cc]lub|      # Matches cased alpha class card type
+      [Dd]iamond|   # Optional plural or singular
+      [Hh]eart|     # Classically composed by Stu and Darren
+      [Ss]pade      # For the Lu1z!
+    )*s?$/x
       r =~ name.to_s.sub(/^the()?/i, '').strip
     Card.new $1, $2
   end
