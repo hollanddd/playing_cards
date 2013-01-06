@@ -20,6 +20,13 @@ Or install it yourself as:
 
     deck_of_cards = Deck.standard
 
+Or pass a block to Deck.new
+    
+    one_eyed_jack = Deck.new(104) {
+      deck = Deck.standard << Deck.standard
+      deck.flatten
+    }
+
 ## Contributing
 
 1. Fork it

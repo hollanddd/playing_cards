@@ -13,13 +13,6 @@ describe Deck do
     deck.length.should be 52
   end
 
-  it '#new can take a block' do
-    deck = Deck.new {
-      self << Card.new('ace', 'hearts')
-    }
-    deck.length.should be 1
-  end
-
   it 'can compare decks' do
     deck = Deck.new
     the_other_deck = Deck.new

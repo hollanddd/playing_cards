@@ -6,7 +6,7 @@ describe Card do
     card = Card[TheAceOfHearts]
     card.rank.should eq 'Ace'
     card.suit.should eq 'Heart'
-    Card.new(8, 'heart').rank.should eq '8'
+    Card.new(8, 'heart').rank.should eq 'Eight'
   end
   
   it 'can initailize cards with a plural suit' do
@@ -16,40 +16,40 @@ describe Card do
 
   it 'can return a card given a name' do
     card = Card.parse('3 of hearts')
-    card.rank.should eq '3' 
+    card.rank.should eq 'Three' 
     card.suit.should eq 'Heart'
   end
 
   it 'aliases [] to parse' do
     card = Card['3 of hearts']
-    card.rank.should eq '3'
+    card.rank.should eq 'Three'
     card.suit.should eq 'Heart'
   end
 
   it 'can parse a card name with or without "the"' do
     two_hearts = Card['2 of Hearts']
-    two_hearts.rank.should eq '2'
+    two_hearts.rank.should eq 'Two'
     
     three_hearts = Card['the3ofHearts']
-    three_hearts.rank.should eq '3'
+    three_hearts.rank.should eq 'Three'
     
     four_hearts = Card['the 4 of hearts']
-    four_hearts.rank.should eq '4'
+    four_hearts.rank.should eq 'Four'
   end
 
   it 'can parse itself regardless of the casing of the suit' do
     card = Card.new 2, 'spades'
-    card.rank.should eq '2'
+    card.rank.should eq 'Two'
     card.suit.should eq 'Spade'
   
     another_card = Card.new 3, 'hEaRtS'
-    another_card.rank.should eq '3'
+    another_card.rank.should eq 'Three'
     another_card.suit.should eq 'Heart'
   end
 
   it 'can parse itself from a constant' do
     card = The2ofHearts
-    card.rank.should eq '2'
+    card.rank.should eq 'Two'
     card.suit.should eq 'Heart'
   end
 
@@ -67,15 +67,15 @@ describe Card do
   context 'describes itself' do
     
     it 'with a name' do
-      The3OfHearts.name.should eq '3 of Hearts'
+      The3OfHearts.name.should eq 'Three of Hearts'
     end
 
     it 'with .to_s alias' do
-      The3OfHearts.to_s.should eq '3 of Hearts' 
+      The3OfHearts.to_s.should eq 'Three of Hearts' 
     end
 
     it 'by inspecting itself' do
-      The3OfHearts.inspect.should eq '<Card: "3 of Hearts">'
+      The3OfHearts.inspect.should eq '<Card: "Three of Hearts">'
     end
   end
 end
