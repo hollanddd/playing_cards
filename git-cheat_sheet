@@ -1,0 +1,6 @@
+git clone url git@github.com:UNIXgod/playing_cards.git
+git checkout -b <feature_branch_name>
+git add .
+git commit
+git push origin
+git status 

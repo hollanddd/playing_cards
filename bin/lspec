@@ -1,0 +1,41 @@
+#!/bin/sh
+##########################################################################
+# Title      :  lspec - rspec less respected supervisor
+# Author     :  Stuart Gerstein <stu@rubyprogrammer.net>
+# Date       :  2012-12-22
+# Requires   :  rspec
+# Category   :  Ruby Programming Utilities
+##########################################################################
+# Description
+#    o  "lspec" simply runs rspec through the system pager retaining
+#	any colors set by the user preference in the .rspec rc file
+#       running jails. It will generate an email to be sent to the admin.
+#    o  NOTES: lspec -g spec/spec_helper.rb will generate the proper
+#       code to turn on terminal ansi color for use with streams.
+#    o  less rspec; rspecs less resprected supervisor
+# Examples:
+#       lspec;
+#       lspec -g;
+##########################################################################
+
+f=$PWD/spec/spec_helper.rb
+degenerate( ){ cat <<EOF
+RSpec.configure do |config|
+  config.tty = true
+end
+EOF
+}; respect( ){ rspec|less -R;}
+case $1 in #generata obfuscata
+	-g) degenerate >> $f
+		;;
+	-h*) printf "Ha fuckoff!\n"
+		;;
+	-rot*) grep '#'<$0|tr 'A-Za-z' 'N-ZA-Mn-za-m'
+		;;
+	 *) respect
+		;;
+esac #Obfuscation Generation: 
+     # Cynl gung shaxl zhfvp juvgr obl
+     # Cynl gung shaxl zhfvp evtug
+     # Cynl gung shaxl zhfvp juvgr obl
+     # Ynl qbja gung obbtvr naq cynl gung shaxl zhfvp gvyy lbh qvr
